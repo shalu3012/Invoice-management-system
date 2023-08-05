@@ -20,12 +20,7 @@ Project is created with:
 To run this project, install it locally using npm:
 
 ```
-$ npm install (To install dependencies in main folder.)
-$ cd frontend (To get inside frontend folder.)
-$ npm install (To install dependencies in frontend folder.)
-$ open new terminal window (To get back to main folder.)
-$ cd backend (To get inside in backend folder.)
-$ mongodb (To kickstart database.)
-$ open new terminal window (To get back to main folder.)
-$ npm run dev (To start using app.)
+$ npm run build (To install dependencies in all folders folder.)
+$ npm run dev (To Start using app.)
+
 ```
