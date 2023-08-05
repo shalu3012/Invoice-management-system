@@ -23,7 +23,7 @@ app.use('/api/client',clientRoutes);
 app.use('/api/invoice',invoiceRoutes);
 
 app.use(errorController);
-
+app.get("/",(req,res)=>res.send("hello"))
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
