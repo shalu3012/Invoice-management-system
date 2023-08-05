@@ -15,14 +15,16 @@ export default function Client({ signUpuser, loginUser }) {
   //For Country-State-City List
   const [countryid, setCountryid] = useState(0);
   const [stateid, setStateid] = useState(0);
-  const [cityid, setCityid] = useState(0);
+  // const [cityid, setCityid] = useState(0);
   const [countriesList, setCountriesList] = useState([]);
   const [stateList, setStateList] = useState([]);
   const [cityList, setCityList] = useState([]);
   useEffect(() => {
-    GetCountries().then((result) => {
-      setCountriesList(result);
-    });
+    GetCountries()
+      .then((result) => {
+        setCountriesList(result);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const config = { headers: { "content-type": "application/json" } };
@@ -97,7 +99,8 @@ export default function Client({ signUpuser, loginUser }) {
           } else {
             alert("error");
           }
-        });
+        })
+        .catch((err) => console.log(err));
     } else {
       setMessage("Please input all fields");
     }
@@ -118,7 +121,8 @@ export default function Client({ signUpuser, loginUser }) {
               JSON.stringify(recentClients)
             );
           };
-        });
+        })
+        .catch((err) => console.log(err));
     };
     getAllClients();
   }, []);
@@ -299,9 +303,11 @@ export default function Client({ signUpuser, loginUser }) {
                           onChange={(e) => {
                             handleChange(e);
                             setCountryid(e.target.selectedIndex);
-                            GetState(e.target.selectedIndex).then((result) => {
-                              setStateList(result);
-                            });
+                            GetState(e.target.selectedIndex)
+                              .then((result) => {
+                                setStateList(result);
+                              })
+                              .catch((err) => console.log(err));
                           }}
                           value={client.addressCountry}
                         >
@@ -328,9 +334,11 @@ export default function Client({ signUpuser, loginUser }) {
                             GetCity(
                               countryid,
                               Number(e.target.selectedOptions[0].id)
-                            ).then((result) => {
-                              setCityList(result);
-                            });
+                            )
+                              .then((result) => {
+                                setCityList(result);
+                              })
+                              .catch((err) => console.log(err));
                           }}
                         >
                           {stateList.map((item, index) => (
@@ -353,7 +361,7 @@ export default function Client({ signUpuser, loginUser }) {
                           value={client.addressCity}
                           onChange={(e) => {
                             handleChange(e);
-                            setCityid(Number(e.target.selectedOptions[0].id));
+                            // setCityid(Number(e.target.selectedOptions[0].id));
                           }}
                         >
                           {cityList.map((item, index) => (
@@ -424,6 +432,7 @@ export default function Client({ signUpuser, loginUser }) {
                       .then((res) => {
                         setSelectedClient(res.data[0]);
                       })
+                      .catch((err) => console.log(err))
                   }
                 >
                   <tr>

@@ -39,7 +39,8 @@ export default function Invoices(props) {
             });
           }
           setLoading(false);
-        });
+        })
+        .catch((err) => console.log(err));
     };
     getInvoices();
   }, [user_id]);
@@ -86,7 +87,8 @@ export default function Invoices(props) {
         })
         .then((res) => {
           setSelectedClient(res.data[0]);
-        });
+        })
+        .catch((err) => console.log(err));
       toggleModal();
     } else {
       setMessage("Please input all fields!");
@@ -158,6 +160,7 @@ export default function Invoices(props) {
                                   }
                                 });
                               })
+                              .catch((err) => console.log(err))
                           }
                         >
                           <tr>

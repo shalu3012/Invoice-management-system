@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+mongoose.set("strictQuery", false);
 mongoose.connect(
   "mongodb+srv://shalusrm181:shalu30@cluster1.mdqg1kl.mongodb.net/invoice-management-system?retryWrites=true&w=majority",
   {

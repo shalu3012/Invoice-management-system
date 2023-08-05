@@ -32,7 +32,8 @@ export function OptionModal({ show, currentInvoice }) {
         console.log(res);
         alert(res.data.message);
         history.push("/invoices");
-      });
+      })
+      .catch((err) => console.log(err));
   };
   console.log(preview);
   if (preview) {

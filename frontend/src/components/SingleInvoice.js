@@ -176,7 +176,8 @@ export default function SingleInvoice(props) {
       })
       .then((res) => {
         alert(res.data.message);
-      });
+      })
+      .catch((err) => console.log(err));
   }
 
   let currentInvoice = JSON.parse(

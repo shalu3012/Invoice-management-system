@@ -13,9 +13,6 @@ export default function Header() {
   const user = JSON.parse(window.localStorage.getItem("user"));
   const companyInfo = JSON.parse(window.localStorage.getItem("companyInfo"));
   const [modal, setModal] = useState(false);
-  const [appState, changeState] = useState({
-    activeObj: null,
-  });
   const coInfo = window.localStorage.getItem("coInfo");
   const history = useHistory();
   const logout = () => {

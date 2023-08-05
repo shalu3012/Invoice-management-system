@@ -7,15 +7,13 @@ import {
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import CompanyInfo from "./components/CompanyInfo";
-import Dashboard from "./components/Dashboard";
 import Client from "./components/Client";
 import Invoices from "./components/Invoices";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Profile from "./components/Profile";
 import SingleInvoice from "./components/SingleInvoice";
 import PrintPage from "./components/utils/printPdf/print";
 import Header from "./components/Header";
-import SideBar from "./components/SideBar";
 import MainDashboard from "./components/MainDashboard";
 // import AddClient from "./components/AddClient";
 function App() {

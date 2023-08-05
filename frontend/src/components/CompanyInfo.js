@@ -21,9 +21,11 @@ export default function CompanyInfo({ signUpuser, setCompanyInfo, loginUser }) {
   const [stateList, setStateList] = useState([]);
   const [cityList, setCityList] = useState([]);
   useEffect(() => {
-    GetCountries().then((result) => {
-      setCountriesList(result);
-    });
+    GetCountries()
+      .then((result) => {
+        setCountriesList(result);
+      })
+      .catch((err) => console.log(err));
   }, []);
   const loggedIn = window.localStorage.getItem("loggedIn");
   const history = useHistory();
@@ -93,7 +95,8 @@ export default function CompanyInfo({ signUpuser, setCompanyInfo, loginUser }) {
             );
             history.push("/dashboard");
           }
-        });
+        })
+        .catch((err) => console.log(err));
     } else {
       alert(" not registererd");
     }
@@ -213,9 +216,11 @@ export default function CompanyInfo({ signUpuser, setCompanyInfo, loginUser }) {
                     onChange={(e) => {
                       handleChange(e);
                       setCountryid(e.target.selectedIndex);
-                      GetState(e.target.selectedIndex).then((result) => {
-                        setStateList(result);
-                      });
+                      GetState(e.target.selectedIndex)
+                        .then((result) => {
+                          setStateList(result);
+                        })
+                        .catch((err) => console.log(err));
                     }}
                     value={coInfo.addressCountry}
                   >
@@ -239,12 +244,11 @@ export default function CompanyInfo({ signUpuser, setCompanyInfo, loginUser }) {
                       handleChange(e);
                       setStateid(Number(e.target.selectedOptions[0].id));
                       console.log(stateid);
-                      GetCity(
-                        countryid,
-                        Number(e.target.selectedOptions[0].id)
-                      ).then((result) => {
-                        setCityList(result);
-                      });
+                      GetCity(countryid, Number(e.target.selectedOptions[0].id))
+                        .then((result) => {
+                          setCityList(result);
+                        })
+                        .catch((err) => console.log(err));
                     }}
                   >
                     {stateList.map((item, index) => (

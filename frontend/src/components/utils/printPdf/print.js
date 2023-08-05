@@ -1,10 +1,7 @@
 import React, { useRef } from "react";
-import { useMemo } from "react";
 import PrintIcon from "@mui/icons-material/Print";
 import Sheet from "./Sheet";
 import ReactToPrint from "react-to-print";
-
-import { useReactToPrint } from "react-to-print";
 
 export default function PrintPage() {
   const componentPdf = useRef();

@@ -27,9 +27,11 @@ export default function SingleClient({ selectedClient }) {
   const [cityList, setCityList] = useState([]);
 
   useEffect(() => {
-    GetCountries().then((result) => {
-      setCountriesList(result);
-    });
+    GetCountries()
+      .then((result) => {
+        setCountriesList(result);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const [client, setClient] = useState({
@@ -72,7 +74,8 @@ export default function SingleClient({ selectedClient }) {
           alert(res.data.message);
           toggleClientModal();
           toggleModal();
-        });
+        })
+        .catch((err) => console.log(err));
     } else {
       setMessage("Please input all fields");
     }
@@ -102,7 +105,8 @@ export default function SingleClient({ selectedClient }) {
       .then((res) => {
         alert(res.data.message);
         window.location.reload();
-      });
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className="singleClientContainer">
@@ -276,11 +280,11 @@ export default function SingleClient({ selectedClient }) {
                               onChange={(e) => {
                                 handleChange(e);
                                 setCountryid(e.target.selectedIndex);
-                                GetState(e.target.selectedIndex).then(
-                                  (result) => {
+                                GetState(e.target.selectedIndex)
+                                  .then((result) => {
                                     setStateList(result);
-                                  }
-                                );
+                                  })
+                                  .catch((err) => console.log(err));
                               }}
                               value={client.addressCountry}
                             >
@@ -309,9 +313,11 @@ export default function SingleClient({ selectedClient }) {
                                 GetCity(
                                   countryid,
                                   Number(e.target.selectedOptions[0].id)
-                                ).then((result) => {
-                                  setCityList(result);
-                                });
+                                )
+                                  .then((result) => {
+                                    setCityList(result);
+                                  })
+                                  .catch((err) => console.log(err));
                               }}
                             >
                               {stateList.map((item, index) => (
